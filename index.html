@@ -488,7 +488,7 @@
             updateDashboard(data.bandwidth, data.average_latency, data.average_jitter, data.total_data_transfer, data.total_packets, data.top_dest_ips.map(ipData => ipData[0]).join(','), data.top_protocols.map(protocolData => protocolData[0]).join(','), data.top_src_ips.map(srcIpData => srcIpData[0]).join(','));
             //Check this
             var ip = data.top_dest_ips.map(ipData => ipData[0]).join(',');
-            if (ip.includes("8.8.8.8")) {
+            if (ip.includes("10.50.236.144")) {
                 document.getElementById('intrusion').textContent = "Intruder Detected";
                 document.getElementById('intrusion').style.color = "#f56565";
                 document.getElementById('body').style.backgroundColor = "#f56565";
@@ -549,7 +549,7 @@
                 data: {
                     labels: ip_names, // This will place each IP name under its corresponding bar
                     datasets: [{
-                        label: 'IP Usage',
+                        label: 'Amount of Packets',
                         data: ips_packets,
                         backgroundColor: barColors,
                         borderColor: 'rgba(0,0,0)',
@@ -589,7 +589,7 @@
                         },
                     },
                     hover: {
-                        animationDuration: 400
+                        animationDuration: 2000
                     },
                     // If your Chart.js version supports plugins, this could also ensure the legend is not displayed
                     plugins: {
@@ -622,7 +622,7 @@
                 data: {
                     labels: protocol_names, // This will place each IP name under its corresponding bar
                     datasets: [{
-                        label: 'IP Usage',
+                        label: 'Amount of Packets',
                         data: protocol_packets,
                         backgroundColor: pieColors,
                         borderColor: 'rgba(0,0,0)',
@@ -661,7 +661,7 @@
                         },
                     },
                     hover: {
-                        animationDuration: 1000
+                        animationDuration: 2000
                     },
                     // If your Chart.js version supports plugins, this could also ensure the legend is not displayed
                     plugins: {
@@ -760,7 +760,7 @@
                 data: {
                     labels: src_ip_names, // This will place each IP name under its corresponding bar
                     datasets: [{
-                        label: 'IP Usage',
+                        label: 'Amount of Packets',
                         data: src_ips_packets,
                         backgroundColor: barColors,
                         borderColor: 'rgba(0,0,0)',
@@ -800,7 +800,7 @@
                         },
                     },
                     hover: {
-                        animationDuration: 400
+                        animationDuration: 2000
                     },
                     // If your Chart.js version supports plugins, this could also ensure the legend is not displayed
                     plugins: {
@@ -956,7 +956,7 @@
 
 
             }
-            if(data > 70){
+            if(data > 50){
                 document.getElementById('humidity').style.color = "#f56565";
                 document.getElementById('humidity').textContent = data+"% Environment is too humid for the system";
             }
@@ -998,7 +998,7 @@
                             data: {
                                 labels: dns_names, // This will place each IP name under its corresponding bar
                                 datasets: [{
-                                    label: 'IP Usage',
+                                    label: 'Amount of Packets',
                                     data: dns_packets,
                                     backgroundColor: pieColors,
                                     borderColor: 'rgba(0,0,0)',
@@ -1037,7 +1037,7 @@
                                     },
                                 },
                                 hover: {
-                                    animationDuration: 1000
+                                    animationDuration: 2000
                                 },
                                 // If your Chart.js version supports plugins, this could also ensure the legend is not displayed
                                 plugins: {
